@@ -28,7 +28,7 @@ public class AutocompleteApplicationIntegrationTests {
     @MethodSource("provideParameters")
     public void testAutocompleteParametrized(String prefix, String expected) {
         // trigger & verify
-        String actual = getForObject(prefix).getPredictedText();
+        String actual = getForObject(prefix).predictedText();
         Assertions.assertThat(actual).isEqualTo(expected);
     }
 

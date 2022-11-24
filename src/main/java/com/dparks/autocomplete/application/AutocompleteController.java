@@ -41,7 +41,7 @@ public class AutocompleteController {
     public AutocompleteResponse autocomplete(@RequestParam(value = "inputText") String inputText) {
         String requestID = String.format("%s-%s", systemUtcClock.instant().toEpochMilli(), inputText.hashCode());
         AutocompleteRequest autocompleteRequest = new AutocompleteRequest(requestID, inputText);
-        Optional<String> autoCompletedString = autocompletionStrategy.complete(autocompleteRequest.getInputText());
+        Optional<String> autoCompletedString = autocompletionStrategy.complete(autocompleteRequest.inputText());
         return new AutocompleteResponse(requestID, autoCompletedString.orElse(null));
     }
 }
